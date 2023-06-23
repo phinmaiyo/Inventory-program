@@ -34,3 +34,24 @@ def student_inventory():                      # defines inventory function
         else:
             dictstd[newstud] = {"Age": stud_age, "GPA": stud_GPA, "Hobby": stud_hobby}
             print(f"\n This student {newstud} added successfully")
+
+    elif (userInput == 3):                                              # finds a specific student in the inventory
+        srcStud = input("Please enter the student name to search: ").lower()
+        if srcStud in dictstd:
+            print(f"\n Student Record Found {srcStud}{dictstd[srcStud]}") 
+        else:
+            print(f"\n Student Record not Found {srcStud}")
+
+    elif (userInput == 4):                                               # removes a students record
+        rmStud = input("Please Enter Student Name to Remove: ").lower()
+        if rmStud in dictstd:
+            prompt = input(f"Are you sure you want to delete {rmStud}'s inventory? yes or no :'").lower()
+            if prompt == yes:
+                dictstd.pop(rmStud)
+                print(f"\n {rmStud} record deleted")
+            for student in dictstud:
+                print(f"\n {student}")
+    else:
+        print(f" No Record of student by name {rmStud} Found in inventory")
+
+
